@@ -1,38 +1,145 @@
-.App {
-  text-align: center;
+body {
+    background-color: rgb(33, 37, 41) !important;
+    color: white !important;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav-item {
+    color: white;
+    text-decoration : none;
+    margin-right: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.banner {
+    display: flex;
+    height: 600px;
+    align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* ::before : 가상선택자 - 존재하지 않은 요소를 존재하는 요소처럼 보여지게 하는 선택자 */
+.banner::before {
+    position: absolute;
+    left : 0;
+    width: 100%;
+    height: 600px;
+    content: "";
+    background: linear-gradient(to right, black, transparent);
 }
 
-.App-link {
-  color: #61dafb;
+.banner-info {
+    width: 40%;
+    margin-left: 40px;
+    z-index: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.image {
+    display: flex;
+    height: 100px;
+    width: 100px;
+}
+
+.movieHover {
+    position: relative;
+    left : 0;
+    width: 100%;
+    height: 600px;
+    background: linear-gradient(to right, black, transparent);
+}
+
+/* .title {
+    margin-left: 10px;
+    align-items: center;
+}
+
+.badge {
+    right: 5px;
+    margin-left: 10px;
+    text-decoration : none;
+}
+
+.avg {
+    margin-left: 10px;
+} */
+
+.overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgba(0,0,0,0.9);
+    height: 100%;
+    opacity: 0;
+}
+
+.movie-card:hover .overlay {
+    opacity: 1;
+}
+
+.movie-card > a {
+    color:white;
+    text-decoration: none;
+}
+
+.movie-card > .overlay > .genres,
+.movie-card > .overlay > .info {
+    display: flex;
+    gap: 5px;
+}
+
+/* MovieDetails */
+.movie-details{
+    display: flex;
+    padding: 20px;
+    gap: 50px;
+}
+
+.movie-details .poster > img{
+    width: 400px;
+}
+
+.movie-details .genre{
+    display: flex;
+    gap: 10px;
+}
+
+.movie-details .genre + h1 {
+    font-size: 4em;
+    margin: 40px 0;
+}
+
+.movie-details h4 + div {
+    display: flex;
+    gap: 15px;
+    border-bottom: 3px solid white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.movie-details .overview{
+    border-bottom: 3px solid white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Review */
+.review-box{
+    border: 3px solid white;
+    padding: 30px;
+}
+
+.review-item {
+    border-bottom: 3px solid white;
+    margin-bottom: 15px;
+    padding: 30px;
+    line-height: 35px;
+}
+
+.movie-title {
+    font-weight: bold;
+}
+
+/* Tmovies.jsx */
+
+.movie-card-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
